@@ -11,7 +11,7 @@ public class Ball : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         scoreBoardScript = scoreBoard.GetComponent<ScoreBoard>();
-        GoBall();
+        
         
 
     }
@@ -37,7 +37,7 @@ public class Ball : MonoBehaviour
         if(coll.collider.CompareTag("Player")){
             Vector2 vel;
             vel.x = 1.2f*(rb2d.velocity.x);
-            vel.y = (rb2d.velocity.y / 2) + (coll.collider.GetComponent<Player>().currentSpeed.y);
+            vel.y = rb2d.velocity.y;
             rb2d.velocity = vel;
             Debug.Log("Player");
         }
