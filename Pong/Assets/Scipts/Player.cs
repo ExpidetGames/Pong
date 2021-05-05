@@ -15,6 +15,10 @@ public class Player : MonoBehaviour
           
             CheckInput();
         }
+        else
+        {
+            Destroy(GetComponent<Rigidbody2D>());
+        }
     }
     public void CheckInput()
     {   
