@@ -2,7 +2,7 @@
 
 __Comming Soon:__
 
-* MainManu
+* MainMenu
 * Settings
 * Localmultiplayer
 * Localsingleplayer
