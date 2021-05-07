@@ -1,9 +1,11 @@
 using UnityEngine;
 using Photon.Pun;
-
 public class Launcher :  MonoBehaviourPunCallbacks
 {
-    public GameObject PlayerPrefab;
+    public static Launcher Instance;
+    [SerializeField] GameObject PlayerPrefab;
+
+ 
     //connecting to Photon
     void Start()
     {
@@ -35,6 +37,4 @@ public class Launcher :  MonoBehaviourPunCallbacks
         
         
     }
-    
-        
 }
