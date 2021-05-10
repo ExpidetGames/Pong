@@ -15,5 +15,6 @@ public class RoomListItem : MonoBehaviour
     public void OnClick()
     {
         RoomManager.Instance.JoinRoom(info);
+        MenuManager.Instance.OpenMenu("Game");
     }
 }
