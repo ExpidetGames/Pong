@@ -8,9 +8,8 @@ public class RoomManager : MonoBehaviourPunCallbacks
 {
     public static RoomManager Instance;
     [SerializeField] Transform roomListContent;
-    [SerializeField] GameObject roomListtIemPrefab;
+    [SerializeField] GameObject roomListTiemPrefab;
     [SerializeField] TMP_InputField RoomName;
-    int RoomList_;
     void Awake()
     {
         Instance = this;
@@ -22,40 +21,32 @@ public class RoomManager : MonoBehaviourPunCallbacks
     }
     public void CreateOrJoinRoom()
     {
-     
+        if(RoomName.text != null)
+        {
+            RoomOptions options = new RoomOptions();
+            options.MaxPlayers = 2;
           
 
-            PhotonNetwork.CreateRoom(RoomName.text);
-        MenuManager.Instance.OpenMenu("Game");
+            PhotonNetwork.JoinOrCreateRoom(RoomName.text, options, null);
+            
+        }
 
     }
     public override void OnCreatedRoom()
     {
         Debug.Log("RoomCreated");
     }
-   
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
-        RoomList_ = roomList.Count;
         Debug.Log("RoomCreatedUbdate");
         foreach(Transform trans in roomListContent)
         {
             Destroy(trans.gameObject);
-            Debug.Log("Destroy"+ trans.gameObject.name);
         }
-        
-		for(int i = 0; i < roomList.Count; i++)
-		{
-            Debug.Log(i);
-			if(roomList[i].RemovedFromList)
-				continue;
-			Instantiate(roomListtIemPrefab, roomListContent).GetComponent<RoomListItem>().SetUp(roomList[i]);
-		}
-
-    }
-    void Update()
-    {
-        Debug.Log(RoomList_);
+        for(int i = 0; i < roomList.Count; i++)
+        {
+            Instantiate(roomListTiemPrefab, roomListContent).GetComponent<RoomListItem>().SetUp(roomList[i]);
+        }
     }
 
 }
