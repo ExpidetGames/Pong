@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 3846810764048753234}
   - component: {fileID: 3846810764048753233}
-  - component: {fileID: 3846810764048753232}
   - component: {fileID: 3846810764048753236}
   - component: {fileID: 3846810764048753235}
   - component: {fileID: 3846810764048753238}
   - component: {fileID: 3846810764048753239}
+  - component: {fileID: 553683840}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Untagged
@@ -29,7 +29,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3846810764048753327}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.16, z: 10}
   m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children: []
@@ -88,19 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3846810764048753232
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3846810764048753327}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 748152facce025c449deeafcc0b59f1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
 --- !u!50 &3846810764048753236
 Rigidbody2D:
   serializedVersion: 4
@@ -157,7 +144,6 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
-  - {fileID: 0}
   - {fileID: 3846810764048753239}
   sceneViewId: 1
   InstantiationId: 0
@@ -176,5 +162,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SynchronizeVelocity: 1
   m_SynchronizeAngularVelocity: 0
-  m_TeleportEnabled: 0
+  m_TeleportEnabled: 1
   m_TeleportIfDistanceGreaterThan: 3
+--- !u!114 &553683840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3846810764048753327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 748152facce025c449deeafcc0b59f1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 15
+  scoreBoard: {fileID: 0}

@@ -4,24 +4,19 @@ public class Launcher :  MonoBehaviourPunCallbacks
 {
     public static Launcher Instance;
     [SerializeField] GameObject PlayerPrefab;
+    [SerializeField] GameObject MultiplayerPrefab;
 
  
     //connecting to Photon
     void Start()
-    {
+    {   
+        Instance = this;
         PhotonNetwork.ConnectUsingSettings();
-    }
-    public override void OnConnectedToMaster()
-    {
-        PhotonNetwork.JoinLobby();
-    }
-    public override void OnJoinedLobby()
-    {
-        Debug.Log("Joined Lobby");
     }
     //spawn player at different positions  depending on the players allready in the room 
      public override void OnJoinedRoom()
     {
+        Instantiate(MultiplayerPrefab);
         SpawnPlayer();
     }
     public void SpawnPlayer()

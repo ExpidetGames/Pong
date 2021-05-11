@@ -30,10 +30,10 @@ public class Ball : MonoBehaviour
         }
     }
      void OnCollisionEnter2D(Collision2D coll){
-        //ball is only executed by the master client
+        // ball is only executed by the master client
         if(!PhotonNetwork.IsMasterClient)
             return;
-        // every time the ball hits the player the ball goes faster and the ball can give the ball a cut
+        // every time the ball hits the player the ball goes faster
         if(coll.collider.CompareTag("Player")){
             Vector2 vel;
             vel.x = 1.2f*(rb2d.velocity.x);
